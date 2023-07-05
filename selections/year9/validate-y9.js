@@ -56,14 +56,14 @@ function wegcverify() {
       // add up the number of points for each subject
       total_points += subjects[i][1];
 
-      // check if there are between 2 and 4 points allocated for each LA (except te ao Māori)
+      // check if there are between 2 and 3 points allocated for each LA (except te ao Māori)
       // if (subjects[i][0] != "languages") {
       if (subjects[i][1] < 2) {
         if (subjects[i][0] != "teaomaori") {
           points_within_range = false;
           points_share = 1;
         }
-      } else if (subjects[i][1] > 4) {
+      } else if (subjects[i][1] > 3) {
         points_within_range = false;
         points_share = 2;
       }
@@ -78,7 +78,7 @@ function wegcverify() {
           "<i class='bi bi-arrow-up-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Not enough points for this LA'></i> ";
       } else if (points_share == 2) {
         summary_string +=
-          "<i class='bi bi-arrow-down-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Too many points for this LA, should be 2-4'></i> ";
+          "<i class='bi bi-arrow-down-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Too many points for this LA, should be 2-3'></i> ";
       } else {
         summary_string +=
           "<i class='bi bi-check circle text-success'></i> ";
@@ -105,11 +105,11 @@ function wegcverify() {
     }
     if (points_within_range) {
       conditions_summary +=
-        "<p><i class='bi bi-check-circle-fill text-success'></i> Each LA has between 2 and 4 points.</p>";
+        "<p><i class='bi bi-check-circle-fill text-success'></i> Each LA (except Te Ao Māori) has between 2 and 3 points.</p>";
       points_count = true;
     } else {
       conditions_summary +=
-        "<p><i class='bi bi-exclamation-circle-fill text-danger'></i> At least one LA has less than 2 or more than 4 points.</p>";
+        "<p><i class='bi bi-exclamation-circle-fill text-danger'></i> At least one LA (except Te Ao Māori) has less than 2 or more than 3 points.</p>";
     }
     if (course_count && points_count) {
       $("#summary-card").addClass("border-success");
