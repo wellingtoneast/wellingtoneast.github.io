@@ -9,6 +9,23 @@
       crossorigin="anonymous"
     />
   </head>
+  <!-- Google analytics
+        This is purely to get an idea of if this tool is being used. All data sharing options have been 
+        disabled and the enhanced measurements selected are "page views" and "form interactions"
+  -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-G5KN7HB2KK"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-G5KN7HB2KK");
+  </script>
   <body>
     <div class="container">
       <div class="row justify-content-center">
@@ -18,13 +35,19 @@
       </div>
       <div class="row justify-content-center">
         <div class="col">
-        <h1 class="display-5 text-center mt-5">I'd like to explore course selections for...</h1>
-      </div>
+          <h1 class="display-5 text-center mt-5">
+            I'd like to explore course selections for...
+          </h1>
         </div>
+      </div>
       <div class="row justify-content-center">
         <div class="d-grid gap-2 col-4 mx-auto">
-          <a href="selections/year9/" class="btn btn-primary" type="button">Year 9</a>
-          <a href="selections/year10/" class="btn btn-primary" type="button">Year 10</a>
+          <a href="selections/year9/" class="btn btn-primary" type="button"
+            >Year 9</a
+          >
+          <a href="selections/year10/" class="btn btn-primary" type="button"
+            >Year 10</a
+          >
         </div>
       </div>
     </div>
