@@ -19,7 +19,10 @@
   <body>
     <div class="container-fluid">
       <h1 class="display-6">
-        <a class="btn btn-primary btn-lg" href="../../"><i class="bi bi-house"></i></a> WEGC <span class="bg-warning">Year 9</span> Course Selection Helper
+        <a class="btn btn-primary btn-lg" href="../../"
+          ><i class="bi bi-house"></i
+        ></a>
+        WEGC <span class="bg-warning">Year 9</span> Course Selection Helper
       </h1>
       <!-- <h1>Year 10 course selection verifier</h1> -->
       <div class="row head-row">
@@ -62,7 +65,7 @@
                 <li>You will take 10 courses.</li>
                 <li>
                   You need to have at least 2 and no more than 3 points next to
-                  any Learning Area, except Te Ao Māori
+                  any Learning Area.
                 </li>
               </ul>
             </div>
@@ -108,7 +111,7 @@
                       data-points='{"technology":"2"}'
                     />
                     <label class="form-check-label" for="9dit">
-                      Digital Technologies - Hāngarau Matihiko (9DIT)
+                      Digital Technologies | Hāngarau Matihiko (9DIT)
                       <i class="bi bi-2-circle-fill points-technology"></i>
                     </label>
                   </div>
@@ -123,7 +126,7 @@
                       data-points='{"technology":"2"}'
                     />
                     <label class="form-check-label" for="9fot">
-                      Food Technology - Hāngarau Kai (9FOT)
+                      Food Technology | Hāngarau Kai (9FOT)
                       <i class="bi bi-2-circle-fill points-technology"></i>
                     </label>
                   </div>
@@ -153,7 +156,7 @@
                       data-points='{"technology":"2"}'
                     />
                     <label class="form-check-label" for="9crt">
-                      Creative Technology - Te Auaha Hāngarau (9CRT)
+                      Creative Technology | Te Auaha Hāngarau (9CRT)
                       <i class="bi bi-2-circle-fill points-technology"></i>
                     </label>
                   </div>
@@ -330,8 +333,6 @@
                       name="9eng"
                       id="9eng"
                       data-points='{"english":"2"}'
-                      checked
-                      disabled
                     />
                     <label class="form-check-label" for="9eng">
                       Ingarihi/English (9ENG)
@@ -353,6 +354,8 @@
                       name="9hpe"
                       id="9hpe"
                       data-points='{"pe":"2"}'
+                      checked
+                      disabled
                     />
                     <label class="form-check-label" for="9hpe">
                       Te Hauora me Te Akoranga Koiri/PE & Health (9HPE)
@@ -535,12 +538,29 @@
                       type="checkbox"
                       name="9mtk"
                       id="9mtk"
-                      data-points='{"science":"1","teaomaori":"1"}'
+                      data-points='{"science":"1","languages":"1"}'
                     />
                     <label class="form-check-label" for="9mtk">
                       Maramataka (9MTK)
                       <i class="bi bi-1-circle-fill points-science"></i>
-                      <i class="bi bi-1-circle-fill points-teaomaori"></i>
+                      <i class="bi bi-1-circle-fill points-languages"></i>
+                    </label>
+                  </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="9rbt"
+                      id="9rbt"
+                      data-points='{"science":"1","technology":"1"}'
+                    />
+                    <label class="form-check-label" for="9rbt">
+                      Robotics (9RBT)
+                      <i class="bi bi-1-circle-fill points-science"></i>
+                      <i class="bi bi-1-circle-fill points-technology"></i>
                     </label>
                   </div>
                 </li>
@@ -623,7 +643,7 @@
                       data-points='{"english":"1","socsci":"1"}'
                     />
                     <label class="form-check-label" for="9emp">
-                      9EMP - An Empowered Voice
+                      An Empowered Voice (9EMP)
                       <i class="bi bi-1-circle-fill points-english"></i>
                       <i class="bi bi-1-circle-fill points-socsci"></i>
                     </label>
