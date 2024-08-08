@@ -2,7 +2,7 @@ function wegcverify() {
   // total number of points, handy to see if 10 subjects/20 points are selected
   var points = [];
 
-  // this list holds the short language names (used across the html/css/js),
+  // this list holds the short Learning Area names (used across the html/css/js),
   // number of points currently selected for each, and full Learning Area name
   var subjects = [
     ["arts", 0, "Ngā Toi/The Arts"],
@@ -11,9 +11,9 @@ function wegcverify() {
     ["technology", 0, "Hāngarau/Technology"],
     ["maths", 0, "Pāngarau/Maths"],
     ["english", 0, "Ingarihi/English"],
-    ["socsci", 0, "Tikanga-ā-Iwi"],
+    ["socsci", 0, "Te ao Tangata"],
     ["pe", 0, "Akoranga Kōiri me Te Hauora/Health & PE"],
-    ["teaomaori", 0, "Te Ao Māori"],
+    ["teaomaori", 0, "Te ao Māori"],
   ];
 
   // gets the number of points from each selected subject
@@ -30,7 +30,7 @@ function wegcverify() {
       }
     }
   });
-
+  console.log(points);
   // add up the number of points for each LA
   for (let i = 0; i < points.length; i++) {
     for (let j = 0; j < subjects.length; j++) {
@@ -75,12 +75,12 @@ function wegcverify() {
     summary_string += "'>";
     if (points_share == 1) {
       summary_string +=
-        "<i class='bi bi-arrow-up-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Not enough points for this LA'></i> ";
+        "<i class='bi bi-arrow-up-circle text-danger p-2' data-bs-toggle='popover' data-bs-trigger='hover' title='Not enough points for this LA'></i> ";
     } else if (points_share == 2) {
       summary_string +=
-        "<i class='bi bi-arrow-down-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Too many points for this LA, should be 2-3'></i> ";
+        "<i class='bi bi-arrow-down-circle text-danger p-2' data-bs-toggle='popover' data-bs-trigger='hover' title='Too many points for this LA, should be 2-3'></i> ";
     } else {
-      summary_string += "<i class='bi bi-check circle text-success'></i> ";
+      summary_string += "<i class='bi bi-check-circle text-success p-2'></i> ";
     }
     summary_string += subjects[i][2];
     summary_string += ": ";
@@ -134,7 +134,8 @@ function addLAPopups() {
   $(".points-maths").attr("title", "Maths");
   $(".points-pe").attr("title", "Health & PE");
   $(".points-languages").attr("title", "Languages");
-  $(".points-socsci").attr("title", "Tikanga-ā-Iwi");
+  $(".points-socsci").attr("title", "Te ao Tangata");
+  $(".points-teaomaori").attr("title", "Te ao Māori");
 }
 
 $(document).ready(function () {

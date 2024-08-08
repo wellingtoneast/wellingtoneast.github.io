@@ -2,7 +2,7 @@ function wegcverify() {
   // total number of points, handy to see if 10 subjects/20 points are selected
   var points = [];
 
-  // this list holds the short language names (used across the html/css/js),
+  // this list holds the short Learning Area names (used across the html/css/js),
   // number of points currently selected for each, and full Learning Area name
   var subjects = [
     ["arts", 0, "Ngā Toi/The Arts"],
@@ -11,8 +11,9 @@ function wegcverify() {
     ["technology", 0, "Hāngarau/Technology"],
     ["maths", 0, "Pāngarau/Maths"],
     ["english", 0, "Ingarihi/English"],
-    ["socsci", 0, "Tikanga-ā-Iwi"],
+    ["socsci", 0, "Te ao Tangata"],
     ["pe", 0, "Akoranga Kōiri me Te Hauora/Health & PE"],
+    ["teaomaori", 0, "Te Ao Māori"],
   ];
 
   // gets the number of points from each selected subject
@@ -47,6 +48,9 @@ function wegcverify() {
   let points_share = 0;
   let points_within_range = true;
   for (let i = 0; i < subjects.length; i++) {
+    if (subjects[i][0] == "teaomaori" && subjects[i][1] == 0) {
+      continue;
+    }
     points_share = 0;
 
     // add up the number of points for each subject
@@ -74,7 +78,7 @@ function wegcverify() {
       summary_string +=
         "<i class='bi bi-arrow-down-circle text-danger' data-bs-toggle='popover' data-bs-trigger='hover' title='Too many points for this LA, should be 2-4'></i> ";
     } else {
-      summary_string += "<i class='bi bi-check circle text-success'></i> ";
+      summary_string += "<i class='bi bi-check-circle text-success'></i> ";
     }
     summary_string += subjects[i][2];
     summary_string += ": ";
@@ -127,7 +131,8 @@ function addLAPopups() {
   $(".points-maths").attr("title", "Maths");
   $(".points-pe").attr("title", "Health & PE");
   $(".points-languages").attr("title", "Languages");
-  $(".points-socsci").attr("title", "Tikanga-ā-Iwi");
+  $(".points-socsci").attr("title", "Te ao Tangata");
+  $(".points-teaomaori").attr("title", "Te ao Māori");
 }
 $(document).ready(function () {
   // add little popups with short LA names to the points bubbles
