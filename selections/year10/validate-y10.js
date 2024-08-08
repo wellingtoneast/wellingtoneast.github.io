@@ -56,16 +56,16 @@ function wegcverify() {
     // add up the number of points for each subject
     total_points += subjects[i][1];
 
-    // check if there are between 2 and 4 points allocated for each LA (except Languages)
-    // if (subjects[i][0] != "languages") {
-    if (subjects[i][1] < 2) {
-      points_within_range = false;
-      points_share = 1;
-    } else if (subjects[i][1] > 4) {
-      points_within_range = false;
-      points_share = 2;
+    // check if there are between 2 and 4 points allocated for each LA (except Te ao Māori)
+    if (subjects[i][0] != "teaomaori") {
+      if (subjects[i][1] < 2) {
+        points_within_range = false;
+        points_share = 1;
+      } else if (subjects[i][1] > 4) {
+        points_within_range = false;
+        points_share = 2;
+      }
     }
-    // }
 
     // build the right-most column summarising if all of the conditions have been met
     summary_string += "<p class='summary-";
