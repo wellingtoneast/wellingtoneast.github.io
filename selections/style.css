@@ -139,3 +139,9 @@ html {
 .socsci .list-group-item {
   border-color: #673ab7;
 }
+
+.not-available + label {
+  color: #2196F3;
+  text-decoration: line-through;
+  font-style: italic;
+}

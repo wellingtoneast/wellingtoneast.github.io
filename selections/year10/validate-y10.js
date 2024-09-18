@@ -119,24 +119,14 @@ function wegcverify() {
   }
   $("#summary-card .card-title").html(conditions_summary);
 }
-function addLAPopups() {
-  $(".bi-1-circle-fill").attr("data-bs-toggle", "popover");
-  $(".bi-2-circle-fill").attr("data-bs-toggle", "popover");
-  $(".bi-1-circle-fill").attr("data-bs-trigger", "hover");
-  $(".bi-2-circle-fill").attr("data-bs-trigger", "hover");
-  $(".points-science").attr("title", "Science");
-  $(".points-technology").attr("title", "Technology");
-  $(".points-arts").attr("title", "Arts");
-  $(".points-english").attr("title", "English");
-  $(".points-maths").attr("title", "Maths");
-  $(".points-pe").attr("title", "Health & PE");
-  $(".points-languages").attr("title", "Languages");
-  $(".points-socsci").attr("title", "Te ao Tangata");
-  $(".points-teaomaori").attr("title", "Te ao Māori");
-}
+
+
 $(document).ready(function () {
   // add little popups with short LA names to the points bubbles
   addLAPopups();
+
+  //
+  addClosedCoursePopups();
 
   // call the verify function once the page loads
   wegcverify();
@@ -146,7 +136,7 @@ $(document).ready(function () {
     wegcverify();
   });
 
-  // this disables further selections once 10 subjects are chosen
+     // this disables further selections once 10 subjects are chosen
   // comment/remove this if this isn't the desired behaviour
   $("form").on("click", ":checkbox", function (event) {
     $(":checkbox:not(:checked)", this.form).prop("disabled", function () {
@@ -159,4 +149,5 @@ $(document).ready(function () {
   const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   );
+
 });
