@@ -128,8 +128,10 @@ function wegcverify() {
 function addLAPopups() {
   $(".bi-1-circle-fill").attr("data-bs-toggle", "popover");
   $(".bi-2-circle-fill").attr("data-bs-toggle", "popover");
+  $(".bi-1-circle").attr("data-bs-toggle", "popover");
   $(".bi-1-circle-fill").attr("data-bs-trigger", "hover");
   $(".bi-2-circle-fill").attr("data-bs-trigger", "hover");
+  $(".bi-1-circle").attr("data-bs-trigger", "hover");
   $(".points-science").attr("title", "Science");
   $(".points-technology").attr("title", "Technology");
   $(".points-arts").attr("title", "Arts");
@@ -139,6 +141,7 @@ function addLAPopups() {
   $(".points-languages").attr("title", "Languages");
   $(".points-socsci").attr("title", "Te ao Tangata");
   $(".points-teaomaori").attr("title", "Te ao Māori");
+  $(".points-focus").attr("title", "Focus line");
 }
 
 $(document).ready(function () {
