@@ -14,6 +14,7 @@ function wegcverify() {
     ["socsci", 0, "Te ao Tangata"],
     ["pe", 0, "Akoranga Kōiri me Te Hauora/Health & PE"],
     ["teaomaori", 0, "Te Ao Māori"],
+    ["focus", 0, "Focus line"]
   ];
 
   // gets the number of points from each selected subject
@@ -92,13 +93,17 @@ function wegcverify() {
   let conditions_summary = "";
   let course_count = false;
   let points_count = false;
-  if (total_points == 20) {
+  console.log(total_points);
+  if (total_points == 24) {
     conditions_summary +=
-      "<p><i class='bi bi-check-circle-fill text-success'></i> You have selected 10 courses.</p>";
+      "<p><i class='bi bi-check-circle-fill text-success'></i> You have selected 11 courses.</p>";
     course_count = true;
   } else {
-    let num_courses_selected = total_points / 2;
-    conditions_summary += `<p><i class='bi bi-exclamation-circle-fill text-danger'></i> You have selected ${num_courses_selected} courses.</p>`;
+    // let num_courses_selected = total_points / 2;
+    let num_courses_selected = $('input[type="checkbox"]:checked').length;
+    let num_courses_remaining = 11-num_courses_selected;
+    // let num_courses_selected = subjects.length;
+    conditions_summary += `<p><i class='bi bi-exclamation-circle-fill text-danger'></i> You have selected ${num_courses_selected} courses. You can choose ${num_courses_remaining} more.</p>`;
   }
   if (points_within_range) {
     conditions_summary +=
@@ -119,7 +124,24 @@ function wegcverify() {
   }
   $("#summary-card .card-title").html(conditions_summary);
 }
-
+function addLAPopups() {
+  $(".bi-1-circle-fill").attr("data-bs-toggle", "popover");
+  $(".bi-2-circle-fill").attr("data-bs-toggle", "popover");
+  $(".bi-1-circle").attr("data-bs-toggle", "popover");
+  $(".bi-1-circle-fill").attr("data-bs-trigger", "hover");
+  $(".bi-2-circle-fill").attr("data-bs-trigger", "hover");
+  $(".bi-1-circle").attr("data-bs-trigger", "hover");
+  $(".points-science").attr("title", "Science");
+  $(".points-technology").attr("title", "Technology");
+  $(".points-arts").attr("title", "Arts");
+  $(".points-english").attr("title", "English");
+  $(".points-maths").attr("title", "Maths");
+  $(".points-pe").attr("title", "Health & PE");
+  $(".points-languages").attr("title", "Languages");
+  $(".points-socsci").attr("title", "Te ao Tangata");
+  $(".points-teaomaori").attr("title", "Te ao Māori");
+  $(".points-focus").attr("title", "Focus line");
+}
 
 $(document).ready(function () {
   // add little popups with short LA names to the points bubbles
@@ -140,7 +162,7 @@ $(document).ready(function () {
   // comment/remove this if this isn't the desired behaviour
   $("form").on("click", ":checkbox", function (event) {
     $(":checkbox:not(:checked)", this.form).prop("disabled", function () {
-      return $(this.form).find(":checkbox:checked").length == 10;
+      return $(this.form).find(":checkbox:checked").length == 11;
     });
   });
   const tooltipTriggerList = document.querySelectorAll(
