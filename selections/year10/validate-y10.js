@@ -103,7 +103,7 @@ function wegcverify() {
     let num_courses_selected = $('input[type="checkbox"]:checked').length;
     let num_courses_remaining = 11-num_courses_selected;
     // let num_courses_selected = subjects.length;
-    conditions_summary += `<p><i class='bi bi-exclamation-circle-fill text-danger'></i> You have selected ${num_courses_selected} courses. You can choose ${num_courses_remaining} more.</p>`;
+    conditions_summary += `<p><i class='bi bi-exclamation-circle-fill text-danger'></i> You have selected ${num_courses_selected} courses (${total_points} points). You need to choose ${num_courses_remaining} more.</p>`;
   }
   if (points_within_range) {
     conditions_summary +=
