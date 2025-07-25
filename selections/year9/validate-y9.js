@@ -14,6 +14,7 @@ function wegcverify() {
     ["socsci", 0, "Te ao Tangata"],
     ["pe", 0, "Akoranga Kōiri me Te Hauora/Health & PE"],
     ["teaomaori", 0, "Te ao Māori"],
+    ["focus", 0, "Focus"]
   ];
 
   // gets the number of points from each selected subject
@@ -63,6 +64,8 @@ function wegcverify() {
       points_within_range = false;
       points_share = 1;
       // }
+    } else if(subjects[i][0]=="english" || subjects[i][0]=="maths"){
+      
     } else if (subjects[i][1] > 3) {
       points_within_range = false;
       points_share = 2;
@@ -94,9 +97,9 @@ function wegcverify() {
   let conditions_summary = "";
   let course_count = false;
   let points_count = false;
-  if (total_points == 20) {
+  if (total_points == 24) {
     conditions_summary +=
-      "<p><i class='bi bi-check-circle-fill text-success'></i> You have selected 10 courses.</p>";
+      "<p><i class='bi bi-check-circle-fill text-success'></i> You have selected 11 courses.</p>";
     course_count = true;
   } else {
     let num_courses_selected = total_points / 2;
@@ -122,12 +125,25 @@ function wegcverify() {
   $("#summary-card .card-title").html(conditions_summary);
 }
 
+function addLAPopups() {
+  $(".bi-1-circle-fill").attr("data-bs-toggle", "popover");
+  $(".bi-2-circle-fill").attr("data-bs-toggle", "popover");
+  $(".bi-1-circle-fill").attr("data-bs-trigger", "hover");
+  $(".bi-2-circle-fill").attr("data-bs-trigger", "hover");
+  $(".points-science").attr("title", "Science");
+  $(".points-technology").attr("title", "Technology");
+  $(".points-arts").attr("title", "Arts");
+  $(".points-english").attr("title", "English");
+  $(".points-maths").attr("title", "Maths");
+  $(".points-pe").attr("title", "Health & PE");
+  $(".points-languages").attr("title", "Languages");
+  $(".points-socsci").attr("title", "Te ao Tangata");
+  $(".points-teaomaori").attr("title", "Te ao Māori");
+}
+
 $(document).ready(function () {
   // add little popups with short LA names to the points bubbles
   addLAPopups();
-
-  //
-  addClosedCoursePopups();
 
   // call the verify function once the page loads
   wegcverify();
@@ -141,7 +157,7 @@ $(document).ready(function () {
   // comment/remove this if this isn't the desired behaviour
   $("form").on("click", ":checkbox", function (event) {
     $(":checkbox:not(:checked)", this.form).prop("disabled", function () {
-      return $(this.form).find(":checkbox:checked").length == 10;
+      return $(this.form).find(":checkbox:checked").length == 11;
     });
   });
   const tooltipTriggerList = document.querySelectorAll(
